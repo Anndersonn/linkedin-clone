@@ -1,13 +1,12 @@
 import React from 'react'
 import SearchIcon from '@material-ui/icons/Search';
 import './Header.css'
-import HeaderOption from './HeaderOption';
+import HeaderOption from './Option/Option';
 import HomeIcon from '@material-ui/icons/Home';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import ChatIcon from '@material-ui/icons/Chat';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import PersonIcon from '@material-ui/icons/Person';
 
 
 function Header() {
