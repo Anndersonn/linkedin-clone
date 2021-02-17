@@ -1,4 +1,8 @@
+
 .app__wrapper { 
     display: flex;
     background-color: lightgray;
+    padding: 0 10px 0 10px;
+    justify-content: center;
+    margin: 0 auto;
 }
