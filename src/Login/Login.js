@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { auth } from '../firebase';
+import { login } from '../features/userSlice';
 
 function Login() {
 
@@ -11,10 +12,25 @@ function Login() {
 
     const loginInApp = (e) => { e.preventDefault() }
 
-    const register = (e) => { 
-        if (!name) { 
-             return alert('Please enter a full name')
+    const register = (e) => {
+        if (!name) {
+            return alert('Please enter a full name')
         }
+
+        auth.createUserWithEmailAndPassword(email, password).then((userAuth) => {
+            userAuth.user.updateProfile({
+                displayName: name,
+                photoURL: picture
+            })
+                .then(() => {
+                    dispatch(login({
+                        email: userAuth.user.email,
+                        uid: userAuth.user.uid,
+                        displayName: name,
+                        photoUrl: picture
+                    }))
+                })
+        }).catch(error => alert(error.message))
     }
 
     return (
