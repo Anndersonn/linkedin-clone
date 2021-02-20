@@ -24,17 +24,15 @@ function Login() {
         }).catch(error => alert(error))
     }
 
-    const register = (e) => {
+    const register = () => {
         if (!name) {
             return alert('Please enter a full name')
         }
-
         auth.createUserWithEmailAndPassword(email, password).then((userAuth) => {
             userAuth.user.updateProfile({
                 displayName: name,
                 photoURL: picture
-            })
-                .then(() => {
+            }).then(() => {
                     dispatch(login({
                         email: userAuth.user.email,
                         uid: userAuth.user.uid,

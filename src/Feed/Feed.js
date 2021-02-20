@@ -15,8 +15,9 @@ import FlipMove from 'react-flip-move';
 
 function Feed() {
     const user = useSelector(selectUser)
-    const [input, setInput] = useState('')
     const [posts, setPosts] = useState([])
+    const [input, setInput] = useState('')
+
 
     useEffect(() => {
         db.collection('posts').orderBy('timestamp', 'desc').onSnapshot((snapshot) => (
@@ -28,7 +29,6 @@ function Feed() {
             )))
         ))
     }, [])
-
     const sendPost = e => {
         e.preventDefault();
 
@@ -36,19 +36,22 @@ function Feed() {
             name: user.displayName,
             description: user.email,
             message: input,
-            photoUrl: user.photoUrl || "",
+            photoUrl: user.photoUrl || '',
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         })
         setInput('')
     }
+
+
+
     return (
         <div className='feed'>
             <div className="feed__inputContainer">
                 <div className="feed__input">
                     <CreateIcon />
                     <form>
-                        <input value={input} onChange={e => setInput(e.target.value)} type="text" />
-                        <button onClick={sendPost} type='submit'>send</button>
+                        <input onChange={e => setInput(e.target.value)} type="text" />
+                        <button onClick={sendPost} type='submit'></button>
                     </form>
                 </div>
                 <div className="Options">
@@ -59,15 +62,15 @@ function Feed() {
                 </div>
             </div>
             <FlipMove>
-            {posts.map(({ id, data: { name, descripption, message, photoUrl } }) => (
-                <Post
-                    key={id}
-                    name={name}
-                    descripption={descripption}
-                    message={message}
-                    photoUrl={photoUrl}
-                />
-            ))}
+                {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
+                    <Post
+                        key={id}
+                        name={name}
+                        description={description}
+                        message={message}
+                        photoUrl={photoUrl}
+                    />
+                ))}
             </FlipMove>
         </div>
     );
