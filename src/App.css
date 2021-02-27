@@ -1,7 +1,9 @@
 .app { 
     background-color: lightgrey;
+    height: 100vh;
 }
 .app__wrapper { 
+    background-color: lightgrey;
     display: flex;
     padding: 0 10px 0 10px;
     justify-content: center;
