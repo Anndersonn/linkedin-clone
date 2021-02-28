@@ -23,7 +23,7 @@ function Header() {
     return (
         <div className='header'>
             <div className="header__left">
-                <img src="https://www.flaticon.com/svg/vstatic/svg/174/174857.svg?token=exp=1613320082~hmac=e4b0b65439289c42a68b7aa3e78db92a" alt="logo" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/768px-LinkedIn_logo_initials.png" alt="logo" />
                 <div className="header__search">
                     <SearchIcon />
                     <input type="text" placeholder="search" />
